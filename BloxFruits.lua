@@ -2085,7 +2085,7 @@ do -- Example UI
 		Tab:AddLabel("==========")
 
 		Tab:AddButton("Fruits", function()
-			game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Blox Fruits", Text = "Nao precisa mais clicar nesse botão, iremos notificar assim que uma fruta aparecer.."})
+			game:GetService("StarterGui"):SetCore("SendNotification", {Title = "ESP Notifier", Text = "The Fruit ESP is running.."})
 			
 			while wait() do
 				for _,v in pairs(workspace:GetChildren()) do
@@ -2104,7 +2104,7 @@ do -- Example UI
 							sound.SoundId = "rbxassetid://180877191"
 							sound:Play()
 							
-							game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Blox Fruits", Text = "Uma fruta foi encontrada!"})
+							game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Blox Fruits", Text = "A "..v.Name.." was found!"})
 							
 							ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 							ImageLabel.BackgroundTransparency = 1
@@ -2116,7 +2116,7 @@ do -- Example UI
 				end
 			end
 			
-			game:GetService("StarterGui"):SetCore("SendNotification", {Title = "IMPORTANTE", Text = "Por algum motivo parou de funcionar, aperte em Fruit Notifier novamente.."})
+			game:GetService("StarterGui"):SetCore("SendNotification", {Title = "IMPORTANT", Text = "The loop isn't working anymore! Execute the script again.."})
 		end)
 	end
 	
