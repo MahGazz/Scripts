@@ -2086,33 +2086,35 @@ do -- Example UI
         Tab:AddButton("Fruits", function()
             game:GetService("StarterGui"):SetCore("SendNotification", {Title = "ESP Notifier", Text = "The Fruit ESP is running.."})
             
-            while wait() do
-                for _,v in pairs(workspace:GetChildren()) do
-                    if v:IsA("Model") and v:FindFirstChildWhichIsA("Tool") then
-                        if not v.Handle:FindFirstChild("BillboardGui") then
-                            local BillboardGui = Instance.new("BillboardGui", v:FindFirstChildWhichIsA("Tool").Handle)
-                            local ImageLabel = Instance.new("ImageLabel", BillboardGui)
-                            local sound = Instance.new("Sound", BillboardGui)
+            while wait(1) do
+				if workspace.Time.Minute.Value == 30 or workspace.Time.Minute.Value == 60 or workspace.Time.Minute.Value == 0 or workspace.Time.Minute.Value == 1 then
+					for _,v in pairs(workspace:GetChildren()) do
+						if v:IsA("Model") and v:FindFirstChildWhichIsA("Tool") then
+							if not v.Handle:FindFirstChild("BillboardGui") then
+								local BillboardGui = Instance.new("BillboardGui", v:FindFirstChildWhichIsA("Tool").Handle)
+								local ImageLabel = Instance.new("ImageLabel", BillboardGui)
+								local sound = Instance.new("Sound", BillboardGui)
 
-                            BillboardGui.Parent = v:FindFirstChildWhichIsA("Tool").Handle
-                            BillboardGui.AlwaysOnTop = true
-                            BillboardGui.LightInfluence = 1
-                            BillboardGui.Size = UDim2.new(0, 50, 0, 50)
-                            BillboardGui.StudsOffset = Vector3.new(0, 2, 0)
-                            
-                            sound.SoundId = "rbxassetid://180877191"
-                            sound:Play()
-                            
-                            game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Last Piece", Text = "A "..v:FindFirstChildWhichIsA("Tool").Name.." was found!"})
-                            
-                            ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                            ImageLabel.BackgroundTransparency = 1
-                            ImageLabel.Size = UDim2.new(0, 50, 0, 50)
-                            ImageLabel.Image = "http://www.roblox.com/asset/?id=4912384005"
-                        end
-                    end
-                    wait()
-                end
+								BillboardGui.Parent = v:FindFirstChildWhichIsA("Tool").Handle
+								BillboardGui.AlwaysOnTop = true
+								BillboardGui.LightInfluence = 1
+								BillboardGui.Size = UDim2.new(0, 50, 0, 50)
+								BillboardGui.StudsOffset = Vector3.new(0, 2, 0)
+								
+								sound.SoundId = "rbxassetid://180877191"
+								sound:Play()
+								
+								game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Last Piece", Text = "A "..v:FindFirstChildWhichIsA("Tool").Name.." was found!"})
+								
+								ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+								ImageLabel.BackgroundTransparency = 1
+								ImageLabel.Size = UDim2.new(0, 50, 0, 50)
+								ImageLabel.Image = "http://www.roblox.com/asset/?id=4912384005"
+							end
+						end
+						wait()
+					end
+				end
             end
             
             game:GetService("StarterGui"):SetCore("SendNotification", {Title = "IMPORTANT", Text = "The loop isn't working anymore! Execute the script again.."})
