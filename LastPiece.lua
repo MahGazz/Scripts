@@ -2088,13 +2088,13 @@ do -- Example UI
             
             while wait() do
                 for _,v in pairs(workspace:GetChildren()) do
-                    if v:IsA("Tool") and v:FindFirstChild("Handle") then
+                    if v:IsA("Model") and v:FindFirstChildWhichIsA("Tool") then
                         if not v.Handle:FindFirstChild("BillboardGui") then
-                            local BillboardGui = Instance.new("BillboardGui", v.Handle)
+                            local BillboardGui = Instance.new("BillboardGui", v:FindFirstChildWhichIsA("Tool").Handle)
                             local ImageLabel = Instance.new("ImageLabel", BillboardGui)
                             local sound = Instance.new("Sound", BillboardGui)
 
-                            BillboardGui.Parent = v.Handle
+                            BillboardGui.Parent = v:FindFirstChildWhichIsA("Tool").Handle
                             BillboardGui.AlwaysOnTop = true
                             BillboardGui.LightInfluence = 1
                             BillboardGui.Size = UDim2.new(0, 50, 0, 50)
@@ -2103,7 +2103,7 @@ do -- Example UI
                             sound.SoundId = "rbxassetid://180877191"
                             sound:Play()
                             
-                            game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Last Piece", Text = "A "..v.Name.." was found!"})
+                            game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Last Piece", Text = "A "..v:FindFirstChildWhichIsA("Tool").Name.." was found!"})
                             
                             ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                             ImageLabel.BackgroundTransparency = 1
